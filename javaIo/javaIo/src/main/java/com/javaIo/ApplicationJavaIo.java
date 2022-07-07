@@ -1,9 +1,5 @@
 package com.javaIo;
 
-/*import com.mysql.cj.result.Row;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;*/
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,13 +24,6 @@ public class ApplicationJavaIo {
 //        wrightObject();
 
         readObject();
-
-
-        /*XSSFWorkbook workbook = new XSSFWorkbook();
-
-        XSSFSheet spreadsheet = workbook.createSheet(" Student Data ");
-
-        Row row = spreadsheet.createRow(rownum++);*/
 
     }
 
