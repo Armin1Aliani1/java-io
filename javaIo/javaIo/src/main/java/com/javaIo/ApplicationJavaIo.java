@@ -1,15 +1,32 @@
 package com.javaIo;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+import java.util.Scanner;
 
 public class ApplicationJavaIo {
+
+    static Scanner scanner;
+
     public static void main(String[] args) throws IOException {
 
 //        writeOnFile();
 
+//        readFileWithFileReader();
+
+        readFromFileWithScanner();
+
+    }
+
+    private static void readFromFileWithScanner() throws FileNotFoundException {
+        File file = new File("test-ch.txt");
+        scanner = new Scanner(file);
+        while (scanner.hasNextLine()) {
+            System.out.println(scanner.nextLine());
+        }
+        scanner.close();
+    }
+
+    private static void readFileWithFileReader() throws IOException {
         FileReader fileReader = new FileReader("test-ch.txt");
 
         int ch;
@@ -19,7 +36,6 @@ public class ApplicationJavaIo {
             System.out.println((char) ch);
         }
         fileReader.close();
-
     }
 
     private static void writeOnFile() throws IOException {
