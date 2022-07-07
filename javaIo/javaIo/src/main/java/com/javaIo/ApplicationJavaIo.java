@@ -1,12 +1,28 @@
 package com.javaIo;
 
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
 public class ApplicationJavaIo {
     public static void main(String[] args) throws IOException {
 
+//        writeOnFile();
+
+        FileReader fileReader = new FileReader("test-ch.txt");
+
+        int ch;
+//        int read = fileReader.read();
+
+        while (-1 != (ch = fileReader.read())) {
+            System.out.println((char) ch);
+        }
+        fileReader.close();
+
+    }
+
+    private static void writeOnFile() throws IOException {
         File file = new File("test-ch.txt");
 
         System.out.println("file.length : " + file.length());
