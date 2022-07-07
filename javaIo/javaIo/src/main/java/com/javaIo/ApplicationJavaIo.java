@@ -21,7 +21,7 @@ public class ApplicationJavaIo {
 
 //        writeOnFileWithDif();
 
-        wrightObject();
+//        wrightObject();
 
         readObject();
 
@@ -39,7 +39,7 @@ public class ApplicationJavaIo {
         FileInputStream fileInputStream = new FileInputStream(file);
         ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
         User user = (User) objectInputStream.readObject();
-        System.out.println("after : " + user);
+        System.out.println("After reading from file : " + user);
         objectInputStream.close();
         fileInputStream.close();
     }
@@ -48,7 +48,7 @@ public class ApplicationJavaIo {
         File file = new File("userFile.txt");
         FileOutputStream outputStream = new FileOutputStream(file);
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
-        User user = new User("MAT", "123456");
+        User user = new User(null, "MAT", "123456");
         System.out.println(user);
         objectOutputStream.writeObject(user);
         objectOutputStream.close();

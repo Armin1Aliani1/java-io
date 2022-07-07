@@ -3,15 +3,26 @@ package com.javaIo;
 import java.io.Serializable;
 
 public class User implements Serializable {
+    private static final long serialVersionUID = 1L;
+    private String firstName;
     private String username;
     private transient String password;
 
     public User() {
     }
 
-    public User(String username, String password) {
+    public User(String firstName, String username, String password) {
+        this.firstName = firstName;
         this.username = username;
         this.password = password;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getUsername() {
@@ -33,7 +44,8 @@ public class User implements Serializable {
     @Override
     public String toString() {
         return "User{" +
-                "username='" + username + '\'' +
+                "firstName='" + firstName + '\'' +
+                ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 '}';
     }
