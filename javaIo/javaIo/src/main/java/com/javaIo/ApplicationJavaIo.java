@@ -21,9 +21,9 @@ public class ApplicationJavaIo {
 
 //        writeOnFileWithDif();
 
-//        wrightObject();
+        wrightObject();
 
-        readObject();
+//        readObject();
 
     }
 
@@ -72,6 +72,8 @@ public class ApplicationJavaIo {
     }
 
     private static void fileOutputAndInputStream() throws IOException {
+        // Write to the file as binary
+
         FileOutputStream fileOutputStream = new FileOutputStream("file");
         fileOutputStream.write(123456789);
         fileOutputStream.close();
@@ -82,16 +84,23 @@ public class ApplicationJavaIo {
         while (-1 != (byteCode = fileInputStream.read())) {
             byteList.add((byte) byteCode);
         }
+        fileInputStream.close();
+        System.out.println(byteList);
     }
 
     private static void readFromFileWithScanner() throws FileNotFoundException {
 
         File file = new File("test-ch.txt");
+
+        // This is try with resources in java
+        // You can use (try with resources) for classes that have autocloseable
         try (Scanner scanner = new Scanner(file)) {
             while (scanner.hasNextLine()) {
                 System.out.println(scanner.nextLine());
             }
         }
+        // You can use (try with resources) for classes that have autocloseable
+        // This is try with resources in java
 
         /*scanner = new Scanner(file);
         while (scanner.hasNextLine()) {
@@ -120,7 +129,10 @@ public class ApplicationJavaIo {
 
 //        System.out.println(file.createNewFile());
 
+        // In order to be able to add text to the file, we use (true)
         FileWriter fileWriter = new FileWriter(file, true);
+        // In order to be able to add text to the file, we use (true)
+
         fileWriter.write("\nvahid\n");
         fileWriter.write("aliani");
 //        fileWriter.flush();
